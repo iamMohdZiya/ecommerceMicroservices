@@ -1,0 +1,17 @@
+const express = require("express");
+const config = require("../../shared/config");  
+
+const app = express();
+app.use(express.json());
+
+app.get("/users", (req, res) => {
+  res.json({
+    service: "Users Service",
+    status: "running",
+    port: config.port,
+  });
+});
+
+app.listen(config.port, () => {
+  console.log(`Users Service running on port ${config.port}`);
+});

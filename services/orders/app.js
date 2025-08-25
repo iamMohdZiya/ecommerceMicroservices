@@ -1,0 +1,22 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const config = require('./shared/config');  
+const orderRoutes = require('./routes/orderRoutes');
+
+const app = express();
+app.use(express.json());
+
+mongoose.connect(config.dbUri)
+  .then(() => console.log(`Connected to database: ${config.dbUri}`))
+  .catch(err => console.error('Database connection error:', err));
+
+app.use('/api', orderRoutes);
+
+app.get('/orders', (req, res) => {
+  res.send('List of orders');
+});
+
+app.listen(config.port, () => {
+  console.log(`Item ordering app running on port ${config.port}`);
+  console.log(`Using Redis cache: ${config.redisUrl}`);
+});

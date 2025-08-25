@@ -1,0 +1,25 @@
+const dotenv = require('dotenv');
+
+const env = process.env.NODE_ENV || 'development';
+if (env === 'production') {
+  dotenv.config({ path: '.env.prod' });
+} else {
+  dotenv.config({ path: '.env' });
+}
+
+const config = {
+  port: process.env.PORT || 3000,
+  dbUri: process.env.DB_URI || 'mongodb://localhost:27017/item-ordering',
+  jwtSecret: process.env.JWT_SECRET || 'default-secret',
+  stripeKey: process.env.STRIPE_KEY || 'sk_test_default',
+  redisUrl: process.env.REDIS_URL || 'redis://localhost:6379',
+};
+
+if (!config.dbUri) {
+  throw new Error('DB_URI is required for the item ordering app!');
+}
+if (!config.jwtSecret) {
+  throw new Error('JWT_SECRET is required for authentication!');
+}
+
+module.exports = config;

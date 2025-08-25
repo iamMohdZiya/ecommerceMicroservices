@@ -1,0 +1,30 @@
+{
+  "name": "alphadevs",
+  "version": "1.0.0",
+  "description": "Microservices-based application with centralized authentication",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose up --build",
+    "dev": "docker-compose up --build",
+    "stop": "docker-compose down",
+    "logs": "docker-compose logs -f",
+    "install-deps": "npm run install-deps:auth && npm run install-deps:users && npm run install-deps:items && npm run install-deps:orders",
+    "install-deps:auth": "cd services/auth && npm install",
+    "install-deps:users": "cd services/users && npm install",
+    "install-deps:items": "cd services/items && npm install",
+    "install-deps:orders": "cd services/orders && npm install"
+  },
+  "keywords": [
+    "microservices",
+    "authentication",
+    "nodejs",
+    "express",
+    "mongodb",
+    "redis"
+  ],
+  "author": "AlphaDevs",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^1.6.0"
+  }
+}
