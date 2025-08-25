@@ -41,8 +41,8 @@
                                  │
                     ┌─────────────▼─────────────┐
                     │    Nginx Gateway (80)     │
-                    │   Reverse Proxy & Load   │
-                    │        Balancer          │
+                    │   Reverse Proxy & Load    │
+                    │        Balancer           │
                     └─────────────┬─────────────┘
                                   │
           ┌───────────────────────┼───────────────────────┐
@@ -53,7 +53,7 @@
 │                   │  │                   │  │                   │
 │ • Token Validation│  │ • User Management │  │ • Item Catalog    │
 │ • JWT Generation  │  │ • Registration    │  │ • Stock Management│
-│ • Service Auth    │  │ • Authentication  │  │ • Caching        │
+│ • Service Auth    │  │ • Authentication  │  │ • Caching         │
 └─────────┬─────────┘  └─────────┬─────────┘  └─────────┬─────────┘
           │                      │                      │
           └──────────────────────┼──────────────────────┘
@@ -61,20 +61,20 @@
                     ┌─────────────▼─────────────┐
                     │   Orders Service (4003)   │
                     │                           │
-                    │ • Order Processing       │
-                    │ • Inventory Updates      │
-                    │ • Event Handling         │
+                    │ • Order Processing        │
+                    │ • Inventory Updates       │
+                    │ • Event Handling          │
                     └─────────────┬─────────────┘
                                   │
           ┌───────────────────────┼───────────────────────┐
           │                       │                       │
 ┌─────────▼─────────┐  ┌─────────▼─────────┐  ┌─────────▼─────────┐
-│     MongoDB       │  │      Redis        │  │     Kafka        │
-│   (27017)        │  │      (6379)        │  │     (9092)       │
+│     MongoDB       │  │      Redis        │  │     Kafka         │
+│   (27017)         │  │      (6379)       │  │     (9092)        │
 │                   │  │                   │  │                   │
-│ • User Data      │  │ • Session Cache   │  │ • Event Streaming │
-│ • Item Data      │  │ • API Response    │  │ • Order Events    │
-│ • Order Data     │  │ • Rate Limiting   │  │ • Notifications   │
+│ • User Data       │  │ • Session Cache   │  │ • Event Streaming │
+│ • Item Data       │  │ • API Response    │  │ • Order Events    │
+│ • Order Data      │  │ • Rate Limiting   │  │ • Notifications   │
 └───────────────────┘  └───────────────────┘  └───────────────────┘
 ```
 
